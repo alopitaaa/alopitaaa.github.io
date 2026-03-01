@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* Make page fill whole viewport */
+  html, body {
+    margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden;
+    -webkit-tap-highlight-color: transparent; /* No tap highlight on mobile */
+    cursor: pointer;
+  }
+  body {
+    transition: background-color 0.3s ease;
+  }
+</style>
+</head>
+<body>
+
+<script>
+  // Rainbow colors in order: red, orange, yellow, green, blue, indigo, violet
+  const colors = [
+    '#FF0000', // Red
+    '#FF7F00', // Orange
+    '#FFFF00', // Yellow
+    '#00FF00', // Green
+    '#0000FF', // Blue
+    '#4B0082', // Indigo
+    '#8B00FF'  // Violet
+  ];
+  let index = 0;
+
+  function changeColor() {
+    document.body.style.backgroundColor = colors[index];
+    index = (index + 1) % colors.length;
+  }
+
+  // Initial color
+  changeColor();
+
+  // Change color on any click or touch
+  document.body.addEventListener('click', changeColor);
+  document.body.addEventListener('touchstart', e => {
+    e.preventDefault(); // prevent tap highlight or zoom on iOS
+    changeColor();
+  }, { passive: false });
+</script>
+
+</body>
+</html>
