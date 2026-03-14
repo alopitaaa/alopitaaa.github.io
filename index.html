@@ -1,0 +1,9 @@
+<!DOCTYPE html><html><head><style>
+html,body{height:100%;width:100%;cursor:pointer;transition:background-color .3s}
+</style></head><body bgcolor='red'><script>
+const b=document.body,C=['red','orange','yellow','green','blue','indigo','violet'];let i=0,T=false;
+function N(){if(T)return;T=true;i=(i+1)%C.length;b.bgColor=C[i]}
+b.addEventListener('transitionend',()=>{T=false});
+b.addEventListener('click',N);
+b.addEventListener('touchstart',e=>{if(e.touches.length>1)return;e.preventDefault();N()},{passive:false});
+</script></body></html>
